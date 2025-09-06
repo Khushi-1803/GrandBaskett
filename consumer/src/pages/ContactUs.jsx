@@ -1,26 +1,4 @@
-// import React from 'react'
 
-// const Contact = () => {
-//   return (
-//     <>
-//     <div className='flex flex-row m-auto justify-center items-center mt-16'>
-//         <div>
-//             <img className='h-80'src='https://i.pinimg.com/736x/24/ff/cf/24ffcfb1e082b236f6898007351d7f76.jpg'/>
-//         </div>
-//     <div className='w-80 h-80 bg-primary-dull p-5 m-5'>
-//         <h1 className='text-xl font-semibold mb-5'>Thank you for contacting us! A member of our support team will get back to you within 24–48 hours.</h1>
-
-
-//         <p>Instagram: @grandbasket</p>
-//         <p>Facebook: facebook.com/grandbasket</p>
-//         <p>WhatsApp: +1 (800) 123-4567</p>
-
-//     </div>
-//     </div>
-//     </>
-//   )
-//  }
-// export default Contact
 
 import React from 'react';
 
