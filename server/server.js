@@ -19,7 +19,7 @@ await connectDB()
 await coonectCloudinary()
 
 //Allow multiple origins
-const allowedOrigins = ['http://localhost:5173', 'https://grand-baskett.vercel.app']    
+const allowedOrigins = ['http://localhost:5173', 'https://grand-basket.vercel.app']    
 
 app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhook);
 
@@ -32,7 +32,7 @@ app.get('/',(req,res)=> res.send("API is working"));
 app.use('/api/user',userRouter)
 app.use('/api/seller',sellerRouter)
 app.use('/api/product',productRouter)
-app.use('/api/cart',cartRouter)
+app.use('/api/cart',cartRouter) 
 app.use('/api/address',addressRouter)
 app.use('/api/order',orderRouter)
 
