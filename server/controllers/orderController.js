@@ -55,6 +55,7 @@ export const placeOrderStripe = async (req, res) => {
       res.json({ success: false, message: "Invalid data" });
     }
     let productData = [];
+    let amount = 0;
     //Calculate total amount using Items
     // let amount = await items.reduce(async (acc, item) => {
     //   const product = await Product.findById(item.product);
