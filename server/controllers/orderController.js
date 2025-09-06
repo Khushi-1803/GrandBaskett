@@ -11,10 +11,24 @@ export const placeOrderCOD = async (req, res) => {
       res.json({ success: false, message: "Invalid data" });
     }
     //Calculate total amount using Items
-    let amount = await items.reduce(async (acc, item) => {
+    // let amount = await items.reduce(async (acc, item) => {
+    //   const product = await Product.findById(item.product);
+    //   return acc + product.offerPrice * item.quantity;
+    // }, 0);
+
+    let amount = 0;
+    for (const item of items) {
       const product = await Product.findById(item.product);
-      return acc + product.offerPrice * item.quantity;
-    }, 0);
+
+      if (!product) {
+        return res.status(404).json({ success: false, message: "Product not found" });
+      }
+
+      amount += product.offerPrice * item.quantity;
+    }
+
+
+
     //Add tax charge
     amount += Math.floor(amount * 0.02);
 
@@ -42,15 +56,33 @@ export const placeOrderStripe = async (req, res) => {
     }
     let productData = [];
     //Calculate total amount using Items
-    let amount = await items.reduce(async (acc, item) => {
+    // let amount = await items.reduce(async (acc, item) => {
+    //   const product = await Product.findById(item.product);
+    //   productData.push({
+    //     name: product.name,
+    //     price: product.offerPrice,
+    //     quantity: item.quantity,
+    //   });
+    //   return acc + product.offerPrice * item.quantity;
+    // }, 0);
+
+    for (const item of items) {
       const product = await Product.findById(item.product);
+
+      if (!product) {
+        return res.status(404).json({ success: false, message: "Product not found" });
+      }
+
       productData.push({
         name: product.name,
         price: product.offerPrice,
         quantity: item.quantity,
       });
-      return acc + product.offerPrice * item.quantity;
-    }, 0);
+
+      amount += product.offerPrice * item.quantity;
+    }
+
+
     //Add tax charge
     amount += Math.floor(amount * 0.02);
 
