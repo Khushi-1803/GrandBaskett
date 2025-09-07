@@ -10,6 +10,7 @@ orderRouter.get('/user',authUser,getUsersOrders)
 orderRouter.get('/seller',authSeller,getAllOrders) 
 orderRouter.post('/stripe',authUser,placeOrderStripe)  
 
+
 export default orderRouter 
 
 

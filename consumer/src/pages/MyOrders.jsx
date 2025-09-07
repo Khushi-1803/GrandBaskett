@@ -8,6 +8,7 @@ const MyOrders = () => {
     const fetchMyOrders = async()=>{
         try {
             const {data} = await axios.get('/api/order/user')
+            console.log("Orders API Response:", data);
             if (data.success) {
                 setMyOrders(data.orders)
             }
@@ -17,10 +18,10 @@ const MyOrders = () => {
         }
     }
     useEffect(()=>{
-        if (user) {
+        
            fetchMyOrders() 
-        }
-    },[user])
+        
+    },[])
   return (
     <div className='mt-16 pb-16'>
         <p className="text-3xl font-extrabold bg-gradient-to-r from-primary to-primary-dull bg-clip-text text-transparent mb-5">My Orders</p>
@@ -34,7 +35,7 @@ const MyOrders = () => {
                 </p>
                 {order.items.map((item,index)=>(
                     <div key={index} className={`relative bg-white text-gray-500/70 ${
-                        order.items.leghth !== index+1 && "border-b "
+                        order.items.legth !== index+1 && "border-b "
                     } border-gray-300 flex flex-col md:flex-row md:items-center justify-between p-4 py-5 md:gap-16 w-full max-w-4xl`}>
 
                         <div className='flex items-center mb-4 md:mb-0'>

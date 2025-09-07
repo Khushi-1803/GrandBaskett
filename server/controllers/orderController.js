@@ -56,7 +56,7 @@ export const placeOrderStripe = async (req, res) => {
     }
     let productData = [];
     let amount = 0;
-    //Calculate total amount using Items
+    //Calculate total amount using Items  n
     // let amount = await items.reduce(async (acc, item) => {
     //   const product = await Product.findById(item.product);
     //   productData.push({
@@ -116,7 +116,7 @@ export const placeOrderStripe = async (req, res) => {
     const session = await stripeInstance.checkout.sessions.create({
       line_items,
       mode: "payment",
-      success_url: `${origin}/loader?next=my-orders`,
+      success_url: `${origin}/loader?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/cart`,
       metadata: {
         orderId: order._id.toString(),

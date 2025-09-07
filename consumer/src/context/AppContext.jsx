@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 axios.defaults.withCredentials = true; //sending cookies with request
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL; 
 
 export const AppContext = createContext();
 export const AppContextProvider = ({children}) => {
@@ -20,7 +20,7 @@ export const AppContextProvider = ({children}) => {
     const[products,setProducts] = useState([])
 
     const[cartItems,setCartItems] = useState({})
-    const[searchQuery,setSearchQuery] = useState({})
+    const[searchQuery,setSearchQuery] = useState({}) 
 
 
     //fetch seller status
@@ -72,7 +72,7 @@ export const AppContextProvider = ({children}) => {
             cartData[itemId] = 1;
         }
         setCartItems(cartData);
-        toast.success("Added to cart")
+        toast.success("Added to cart")   
     }
 
     //update cart item qty

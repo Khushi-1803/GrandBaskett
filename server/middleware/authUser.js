@@ -41,7 +41,7 @@ const authUser = async (req, res, next) => {
   try {
     const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (tokenDecode.id) {
+    if (tokenDecode.id) { 
       // ✅ safer place to store
       req.userId = tokenDecode.id;
     } else {
