@@ -44,7 +44,7 @@ const Orders = () => {
                 alt="boxIcon"
               />
               <div className="flex flex-col space-y-1">
-                {order.items.map((item, i) => (
+                {orders.items?.map((item, i) => (
                   <p key={i} className="font-medium text-gray-800">
                     {item.product.name}{' '}
                     <span className="text-sm text-gray-500">× {item.quantity}</span>
