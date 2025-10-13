@@ -56,16 +56,7 @@ export const placeOrderStripe = async (req, res) => {
     }
     let productData = [];
     let amount = 0;
-    //Calculate total amount using Items  n
-    // let amount = await items.reduce(async (acc, item) => {
-    //   const product = await Product.findById(item.product);
-    //   productData.push({
-    //     name: product.name,
-    //     price: product.offerPrice,
-    //     quantity: item.quantity,
-    //   });
-    //   return acc + product.offerPrice * item.quantity;
-    // }, 0);
+    
 
     for (const item of items) {
       const product = await Product.findById(item.product);
