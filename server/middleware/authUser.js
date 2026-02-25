@@ -42,7 +42,7 @@ const authUser = async (req, res, next) => {
     const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
 
     if (tokenDecode.id) { 
-      // ✅ safer place to store
+      // safer place to store
       req.userId = tokenDecode.id;
     } else {
       return res.json({ success: false, message: "Not Authorized" });

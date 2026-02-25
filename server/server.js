@@ -19,7 +19,16 @@ await connectDB()
 await coonectCloudinary()
 
 //Allow multiple origins
-const allowedOrigins = ['http://localhost:5173', 'https://grand-basket.vercel.app']    
+const allowedOrigins = [
+ 'http://localhost:5173',
+ 'https://grand-basket.vercel.app',
+ 'https://grand-basket-git-main-khushis-projects-b1b6d3dc.vercel.app'
+]
+
+app.use(cors({
+ origin: allowedOrigins,
+ credentials:true
+}));
 
 
 //Middleware configuration' 
